@@ -78,7 +78,7 @@ public class PersonagemScript : MonoBehaviour
             gameObject.GetComponent<PersonagemScript>().enabled = false;
             GameController.instance.AlterarVida(-1);
 
-            if(GameController.instance.vidas >= 0)
+            if(GameController.instance.vidas > 0)
             {
                 SceneManager.LoadScene("SampleScene");
             }
