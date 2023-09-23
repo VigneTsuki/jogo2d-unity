@@ -14,6 +14,13 @@ public class PersonagemScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameController.instance.DesabilitarItensColetados();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     void Update()
@@ -80,7 +87,9 @@ public class PersonagemScript : MonoBehaviour
             if(GameController.instance.vidas > 0)
             {
                 if(SceneManager.GetActiveScene().name == "Tela1")
+                {
                     SceneManager.LoadScene("Tela1");
+                }
 
                 if (SceneManager.GetActiveScene().name == "Tela2")
                 {
@@ -89,6 +98,7 @@ public class PersonagemScript : MonoBehaviour
             }
             else
             {
+                GameController.instance.melanciasColetadas = new System.Collections.Generic.Dictionary<string, bool>();
                 CarregarGameOver();
             }
         }

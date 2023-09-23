@@ -21,7 +21,8 @@ public class Fruta : MonoBehaviour
         if(collision.gameObject.tag == "Player") 
         {
             collision.GetComponent<PersonagemScript>().SomarPontos();
-            Destroy(gameObject);
+            GameController.instance.ColetarItem(gameObject.name);
+            gameObject.transform.position = new Vector3(-1000f, -1000f, 0f);
         }
     }
 }
