@@ -79,7 +79,13 @@ public class PersonagemScript : MonoBehaviour
 
             if(GameController.instance.vidas > 0)
             {
-                SceneManager.LoadScene("Tela1");
+                if(SceneManager.GetActiveScene().name == "Tela1")
+                    SceneManager.LoadScene("Tela1");
+
+                if (SceneManager.GetActiveScene().name == "Tela2")
+                {
+                    SceneManager.LoadScene("Tela2");
+                }
             }
             else
             {
@@ -93,6 +99,7 @@ public class PersonagemScript : MonoBehaviour
         SceneManager.LoadScene("GameOver");
         GameController.instance.vidas = 3;
         GameController.instance.totalScore = 0;
+        GameController.instance.canvas.enabled = false;
         GameController.instance.RefreshScreen();
     }
 

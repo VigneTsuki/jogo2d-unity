@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
         GameController.instance.vidas = 3;
         GameController.instance.totalScore = 0;
         GameController.instance.canvas.enabled = true;
+        GameController.instance.faseFinal = false;
     }
 
     public void Sair()
