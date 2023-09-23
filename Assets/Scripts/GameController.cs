@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
@@ -7,7 +8,9 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public TMP_Text vidaTexto;
     public TMP_Text melanciaTexto;
+    public Canvas canvas;
     public int vidas = 3;
+    public bool faseFinal = false;
 
     /// <summary>
     /// Não perder o controller ao resetar a tela

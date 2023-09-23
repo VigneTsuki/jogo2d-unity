@@ -83,10 +83,17 @@ public class PersonagemScript : MonoBehaviour
             }
             else
             {
-                GameController.instance.vidas = 3;
-                SceneManager.LoadScene("GameOver");
+                CarregarGameOver();
             }
         }
+    }
+
+    public void CarregarGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+        GameController.instance.vidas = 3;
+        GameController.instance.totalScore = 0;
+        GameController.instance.RefreshScreen();
     }
 
     public void SomarPontos()

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tela1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Tela2.unity
+    guid: b97ba22e2e6f71b4e8c935fc25405924
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 0794d89b933666844849af00e15d3a39
   m_configObjects: {}
