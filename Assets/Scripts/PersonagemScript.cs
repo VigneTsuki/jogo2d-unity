@@ -22,6 +22,7 @@ public class PersonagemScript : MonoBehaviour
     {
         Movimentacao();
         Pulo();
+        GameController.instance.RefreshScreen();
     }
 
     void Movimentacao()
@@ -84,7 +85,8 @@ public class PersonagemScript : MonoBehaviour
             }
             else
             {
-                GameController.instance.vidas = 0;
+                GameController.instance.vidas = 3;
+                SceneManager.LoadScene("GameOver");
             }
         }
     }

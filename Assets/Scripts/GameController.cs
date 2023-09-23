@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(transform.root);
+            DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
         {
