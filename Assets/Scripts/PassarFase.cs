@@ -11,7 +11,7 @@ public class PassarFase : MonoBehaviour
                 GameController.instance.vidas = 0;
                 GameController.instance.totalScore = 0;
                 GameController.instance.canvas.enabled = false;
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Vitoria");
             }
             else
             {

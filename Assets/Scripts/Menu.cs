@@ -8,7 +8,8 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(cena);
         GameController.instance.vidas = 3;
         GameController.instance.totalScore = 0;
-        GameController.instance.canvas.enabled = true;
+        if(cena != "Menu")
+            GameController.instance.canvas.enabled = true;
         GameController.instance.faseFinal = false;
     }
 
