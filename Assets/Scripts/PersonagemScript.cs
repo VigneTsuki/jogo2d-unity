@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PersonagemScript : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PersonagemScript : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool isJumping;
+    private bool vivo = true;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +65,28 @@ public class PersonagemScript : MonoBehaviour
         }
 
         anim.SetBool("jump", false);
+    }
+
+    public void DescontarVida()
+    {
+        if (vivo)
+        {
+            vivo = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+            gameObject.GetComponent<PersonagemScript>().enabled = false;
+            GameController.instance.AlterarVida(-1);
+
+            if(GameController.instance.vidas >= 0)
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+            else
+            {
+                GameController.instance.vidas = 0;
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

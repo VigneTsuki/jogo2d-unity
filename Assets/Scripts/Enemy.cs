@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,13 +8,11 @@ public class Enemy : MonoBehaviour
     public LayerMask groundLayer;
     private bool ladoDireito = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * velocidade * Time.deltaTime);
@@ -39,6 +34,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Flip no inimigo para simular morte
+    /// </summary>
     void Flip()
     {
         ladoDireito = !ladoDireito;
@@ -47,11 +45,15 @@ public class Enemy : MonoBehaviour
         transform.localScale = escala;
     }
 
+    /// <summary>
+    /// Colisão para descontar vida do player
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("SampleScene");
+            collision.gameObject.GetComponent<PersonagemScript>().DescontarVida();
         }
     }
 }
