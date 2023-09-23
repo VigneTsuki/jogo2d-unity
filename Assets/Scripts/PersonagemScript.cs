@@ -80,7 +80,7 @@ public class PersonagemScript : MonoBehaviour
 
             if(GameController.instance.vidas > 0)
             {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Tela1");
             }
             else
             {
