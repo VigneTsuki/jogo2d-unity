@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Fruta : MonoBehaviour
 {
-
     public int Score;
 
     void Start()

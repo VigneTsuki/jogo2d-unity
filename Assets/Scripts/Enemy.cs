@@ -8,11 +8,6 @@ public class Enemy : MonoBehaviour
     public LayerMask groundLayer;
     private bool ladoDireito = true;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         transform.Translate(Vector2.right * velocidade * Time.deltaTime);
@@ -20,6 +15,7 @@ public class Enemy : MonoBehaviour
 
         if (!ground)
         {
+            // inverter velocidade
             velocidade *= -1;
         }
 
@@ -35,7 +31,7 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// Flip no inimigo para simular morte
+    /// Flip no inimigo quando ele chegar no fim do ground
     /// </summary>
     void Flip()
     {

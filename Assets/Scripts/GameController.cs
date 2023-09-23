@@ -25,10 +25,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-    }
-
     /// <summary>
     /// Alterar a vida do jogador
     /// </summary>
@@ -46,9 +42,5 @@ public class GameController : MonoBehaviour
     public void RefreshScreen()
     {
         vidaTexto.text = vidas.ToString();
-    }
-
-    void Update()
-    {
     }
 }
