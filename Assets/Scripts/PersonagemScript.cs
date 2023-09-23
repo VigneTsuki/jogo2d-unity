@@ -89,7 +89,12 @@ public class PersonagemScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public void SomarPontos()
+    {
+        GameController.instance.AlterarPontos(+1);
+    }
+
+        private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 8)
         {

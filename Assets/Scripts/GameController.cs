@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public int totalScore;
-
+    public int totalScore = 0;
     public static GameController instance;
     public TMP_Text vidaTexto;
+    public TMP_Text melanciaTexto;
     public int vidas = 3;
 
     /// <summary>
@@ -37,10 +37,21 @@ public class GameController : MonoBehaviour
     }
 
     /// <summary>
+    /// Alterar os pontos do jogador
+    /// </summary>
+    /// <param name="ponto"></param>
+    public void AlterarPontos(int ponto)
+    {
+        totalScore += ponto;
+        RefreshScreen();
+    }
+
+    /// <summary>
     /// Atualizar a tela
     /// </summary>
     public void RefreshScreen()
     {
         vidaTexto.text = vidas.ToString();
+        melanciaTexto.text = totalScore.ToString();
     }
 }

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Fruta : MonoBehaviour
 {
-    public int Score;
-
     void Start()
     {
         
@@ -11,7 +9,7 @@ public class Fruta : MonoBehaviour
 
     void Update()
     {
-        
+        GameController.instance.RefreshScreen();
     }
 
     /// <summary>
@@ -22,7 +20,7 @@ public class Fruta : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player") 
         {
-            GameController.instance.totalScore += Score;
+            collision.GetComponent<PersonagemScript>().SomarPontos();
             Destroy(gameObject);
         }
     }
