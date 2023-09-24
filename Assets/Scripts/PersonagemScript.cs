@@ -7,7 +7,7 @@ public class PersonagemScript : MonoBehaviour
     public float forcaPulo;
     private Rigidbody2D rb;
     private Animator anim;
-    private bool isJumping;
+    public bool noChao = true;
     private bool vivo = true;
 
     void Start()
@@ -23,9 +23,13 @@ public class PersonagemScript : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         Movimentacao();
+    }
+
+    void Update()
+    {
         Pulo();
         GameController.instance.RefreshScreen();
     }
@@ -55,11 +59,11 @@ public class PersonagemScript : MonoBehaviour
 
     void Pulo()
     {
-        if (Input.GetButtonDown("Jump") && !isJumping)
+        if (Input.GetButtonDown("Jump") && noChao)
         {
             rb.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
             anim.SetBool("jump", true);
-            isJumping = true;
+            noChao = false;
         }
     }
 
@@ -67,7 +71,7 @@ public class PersonagemScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 8)
         {
-            isJumping = false;
+            noChao = true;
         }
 
         anim.SetBool("jump", false);
@@ -116,14 +120,6 @@ public class PersonagemScript : MonoBehaviour
     public void SomarPontos()
     {
         GameController.instance.AlterarPontos(+1);
-    }
-
-        private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 8)
-        {
-            isJumping = true;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
